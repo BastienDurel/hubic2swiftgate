@@ -113,7 +113,7 @@ if ($_prefix!='') {
   }
 }
 
-switch ($request) {
+switch($request) {
 	case '/v1.0':
 	case '/v1.0/':
 	case '/auth':
