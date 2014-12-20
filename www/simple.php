@@ -106,9 +106,11 @@ $cacheKey=md5($client);
 $mode=false;
 
 list($request)=explode('?',$_SERVER['REQUEST_URI']);
+// Remove _prefix from url, if any
 if ($_prefix != '') {
-  $pattern = '/^'.str_replace('/', '\\/', $_prefix).'/';
-  $request = preg_replace($pattern, '', $request);
+  if (!strncmp($_prefix, $request, strlen($_prefix))) {
+    $request = substr($request, strlen($_prefix));
+  }
 }
 
 switch ($request) {
